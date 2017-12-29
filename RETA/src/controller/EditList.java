@@ -24,7 +24,7 @@ import model.Specialty;
  * Servlet implementation class Main
  */
 @WebServlet("/Page/Main")
-public class Main extends HttpServlet {
+public class EditList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -1,4 +1,4 @@
-package controller;
+package Parser;
 import java.io.IOException;
 import java.io.InputStream;
 
