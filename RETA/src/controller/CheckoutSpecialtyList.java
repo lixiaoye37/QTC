@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Specialty;
+import parser.QtcExcelSetup;
 
 @WebServlet("/Page/CheckoutSpecialtyList")
 public class CheckoutSpecialtyList extends HttpServlet {
@@ -24,6 +25,9 @@ public class CheckoutSpecialtyList extends HttpServlet {
     public void init(ServletConfig config) throws ServletException 
     {
     	super.init(config);
+    	
+		QtcExcelSetup Setup = new QtcExcelSetup();
+		
     	ArrayList<Specialty> specialties = new ArrayList<Specialty>();
     	
 		specialties.add(new Specialty("AUD",100));
@@ -50,6 +54,7 @@ public class CheckoutSpecialtyList extends HttpServlet {
 		ArrayList<Specialty> specialties = (ArrayList<Specialty>) getServletContext().getAttribute("specialties");
 		String[] CheckedSpecialties = request.getParameterValues("specialty");
 		System.out.println();
+		
 	}
 
 }
