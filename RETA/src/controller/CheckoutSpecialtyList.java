@@ -26,7 +26,6 @@ public class CheckoutSpecialtyList extends HttpServlet {
     {
     	super.init(config);
     	
-		QtcExcelSetup Setup = new QtcExcelSetup();
 		
     	ArrayList<Specialty> specialties = new ArrayList<Specialty>();
     	
@@ -54,6 +53,7 @@ public class CheckoutSpecialtyList extends HttpServlet {
 		ArrayList<Specialty> specialties = (ArrayList<Specialty>) getServletContext().getAttribute("specialties");
 		String[] CheckedSpecialties = request.getParameterValues("specialty");
 		System.out.println();
+		QtcExcelSetup Setup = new QtcExcelSetup();
 		
 	}
 
