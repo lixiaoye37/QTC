@@ -44,9 +44,10 @@ public class ERRA
 		}
 	}
 
-	ArrayList<LocationHistory> locationHistory;
-	ArrayList<Date_Time> date_time;
+	private ArrayList<LocationHistory> locationHistory;
+	private ArrayList<Date_Time> date_time;
 
+	@SuppressWarnings("deprecation")
 	public ERRA(String FilePath) throws IOException
 	{
 		date_time = new ArrayList<>();
@@ -92,7 +93,7 @@ public class ERRA
 
 				if(!(VARO.isEmpty() || State.isEmpty()))
 				{
-					locationHistory.add(new LocationHistory(VARO, State, QtcAssignedSlot));
+					this.locationHistory.add(new LocationHistory(VARO, State, QtcAssignedSlot));
 				}
 			}
 			else if(RowIndex == 1)
@@ -117,7 +118,7 @@ public class ERRA
 								String date = dateWithNoSpaces.substring(0, TimeOfDayIndex);
 								String TimeOfDay = dateWithNoSpaces.substring(TimeOfDayIndex,
 										dateWithNoSpaces.length());
-								date_time.add(new Date_Time(date, TimeOfDay));
+								getDate_time().add(new Date_Time(date, TimeOfDay));
 							}
 							else
 							{
@@ -133,7 +134,7 @@ public class ERRA
 							if(DateUtil.isCellDateFormatted(cell))
 							{
 								SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-								date_time.add(new Date_Time(dateFormat.format(cell.getDateCellValue())));
+								getDate_time().add(new Date_Time(dateFormat.format(cell.getDateCellValue())));
 							}
 							else
 							{
@@ -146,7 +147,7 @@ public class ERRA
 
 						case Cell.CELL_TYPE_BLANK:
 						{
-							date_time.add(new Date_Time(date_time.get(date_time.size() - 1).Date));
+							getDate_time().add(new Date_Time(getDate_time().get(getDate_time().size() - 1).Date));
 						}
 						break;
 					}
@@ -167,7 +168,7 @@ public class ERRA
 
 					if(cell.getCellType() == Cell.CELL_TYPE_STRING)
 					{
-						date_time.get(indexTracker).TimeOfday = cell.getStringCellValue();
+						getDate_time().get(indexTracker).TimeOfday = cell.getStringCellValue();
 					}
 					indexTracker++;
 				}
@@ -176,4 +177,24 @@ public class ERRA
 		}
 		myWorkBook.close();
 	}
+
+	public ArrayList<LocationHistory> getLocationHistory() {
+		return locationHistory; 
+	}
+
+	public void setLocationHistory(ArrayList<LocationHistory> locationHistory) {
+		this.locationHistory = locationHistory;
+	}
+
+	public ArrayList<Date_Time> getDate_time() {
+		return date_time;
+	}
+
+	public void setDate_time(ArrayList<Date_Time> date_time) {
+		this.date_time = date_time;
+	}
+
+
+
+
 }

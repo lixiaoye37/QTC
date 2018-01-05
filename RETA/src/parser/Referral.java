@@ -15,11 +15,11 @@ import org.xml.sax.SAXException;
 
 public class Referral
 {
-	ArrayList<Claimant> ListOfClaimant;
+	private ArrayList<Claimant> ListOfClaimant;
 	
 	public Referral(String FilePath) throws IOException, SAXException, OpenXML4JException
 	{
-		ListOfClaimant = new ArrayList<>();
+		setListOfClaimant(new ArrayList<>());
 		
 		{
 			File xlsxFile = new File(FilePath);
@@ -30,6 +30,14 @@ public class Referral
 		}
 	}
 	
+	public ArrayList<Claimant> getListOfClaimant() {
+		return ListOfClaimant;
+	}
+
+	public void setListOfClaimant(ArrayList<Claimant> listOfClaimant) {
+		ListOfClaimant = listOfClaimant;
+	}
+
 	public class Claimant
 	{
 		String State;
@@ -78,7 +86,7 @@ public class Referral
 		{
 			if(TempClaimant != null)
 			{
-				ListOfClaimant.add(TempClaimant);
+				getListOfClaimant().add(TempClaimant);
 			}
 			if(isFirstRow)
 			{

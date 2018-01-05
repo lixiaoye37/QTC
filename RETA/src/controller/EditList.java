@@ -78,6 +78,7 @@ public class EditList extends HttpServlet {
 //		}
 
 		request.getRequestDispatcher("/Page/ListEditView.jsp").forward(request, response);
+		
 
 	}
 	
