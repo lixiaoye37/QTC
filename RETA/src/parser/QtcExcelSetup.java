@@ -17,12 +17,15 @@ public class QtcExcelSetup
 		{
 			
 			erra = new ERRA(
-					"W:\\java\\QTC\\RETA\\QTC files\\Sample ERRA Data");
-			referral = new Referral(
-					"W:\\java\\QTC\\RETA\\QTC files\\Sample referral data v2.xlsx");
-			vpNetwork = new VaProviderNetwork(
-					"W:\\java\\QTC\\RETA\\QTC files\\VA Provider Network List_non VetFed_083117.xlsx");
+					"C:\\Users\\Philip Tran\\My Stuff\\Programming\\WorkStation\\java\\QTC\\RETA\\QTC files\\Sample ERRA Data.xlsx");
 			
+			referral = new Referral(
+					"C:\\Users\\Philip Tran\\My Stuff\\Programming\\WorkStation\\java\\QTC\\RETA\\QTC files\\Sample referral data v2.xlsx");
+			
+			vpNetwork = new VaProviderNetwork(
+					"C:\\Users\\Philip Tran\\My Stuff\\Programming\\WorkStation\\java\\QTC\\RETA\\QTC files\\VA Provider Network List_non VetFed_083117.xlsx");
+			
+			System.out.println();
 		}
 		catch (IOException e)
 		{
