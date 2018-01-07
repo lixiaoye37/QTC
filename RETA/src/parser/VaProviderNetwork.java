@@ -12,11 +12,11 @@ import org.xml.sax.SAXException;
 
 public class VaProviderNetwork
 {
-	ArrayList<Provider> ListOfProvider;
+	private ArrayList<Provider> ListOfProvider;
 
 	public VaProviderNetwork(String FilePath) throws IOException, SAXException, OpenXML4JException
 	{
-		ListOfProvider = new ArrayList<>();
+		setListOfProvider(new ArrayList<>());
 
 		{
 			File xlsxFile = new File(FilePath);
@@ -25,6 +25,14 @@ public class VaProviderNetwork
 			parser.process();
 			pkg.close();
 		}
+	}
+
+	public ArrayList<Provider> getListOfProvider() {
+		return ListOfProvider;
+	}
+
+	public void setListOfProvider(ArrayList<Provider> listOfProvider) {
+		ListOfProvider = listOfProvider;
 	}
 
 	public class Provider
@@ -76,7 +84,7 @@ public class VaProviderNetwork
 		{
 			if(TempProvider != null)
 			{
-				ListOfProvider.add(TempProvider);
+				getListOfProvider().add(TempProvider);
 			}
 			if(isFirstRow)
 			{
