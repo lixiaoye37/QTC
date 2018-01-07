@@ -11,10 +11,24 @@ public class QtcExcelSetup
 	private Referral referral = null;
 	private VaProviderNetwork vpNetwork = null;
 	
+	/*
+	 * IMPORTANT NOTE: 
+	 * 		This java file is not part of the RETA system. 
+	 * 		This file is an example of how to setup the parsing module.
+	 * 		However, feel free to make this file a part of the RETA system.
+	 * */
+	
 	public QtcExcelSetup() 
 	{
 		try
 		{
+			/*
+			 *NOTE
+			 *	The strings below are RELATIVE file paths. 
+			 *	Using System.out.println(System.getProperty("user.dir")),
+			 *	it shows that the working directory starts at QTC//.
+			 * */
+			
 			vpNetwork = new VaProviderNetwork("RETA\\QTC files\\VA Provider Network List.xlsx");
 			
 			referral = new Referral("RETA\\QTC files\\Sample referral data v2.xlsx");
