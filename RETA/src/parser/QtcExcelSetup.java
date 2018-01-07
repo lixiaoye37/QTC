@@ -15,15 +15,16 @@ public class QtcExcelSetup
 	{
 		try
 		{
+			System.out.println(System.getProperty("user.dir"));
 			
 			erra = new ERRA(
-					"C:\\Users\\Philip Tran\\My Stuff\\Programming\\WorkStation\\java\\QTC\\RETA\\QTC files\\Sample ERRA Data.xlsx");
+					"RETA\\QTC files\\Sample ERRA Data.xlsx");
 			
 			referral = new Referral(
-					"C:\\Users\\Philip Tran\\My Stuff\\Programming\\WorkStation\\java\\QTC\\RETA\\QTC files\\Sample referral data v2.xlsx");
+					"RETA\\QTC files\\Sample referral data v2.xlsx");
 			
 			vpNetwork = new VaProviderNetwork(
-					"C:\\Users\\Philip Tran\\My Stuff\\Programming\\WorkStation\\java\\QTC\\RETA\\QTC files\\VA Provider Network List_non VetFed_083117.xlsx");
+					"RETA\\QTC files\\VA Provider Network List_non VetFed_083117.xlsx");
 			
 			System.out.println();
 		}
