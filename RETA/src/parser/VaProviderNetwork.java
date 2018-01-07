@@ -16,7 +16,7 @@ public class VaProviderNetwork
 
 	public VaProviderNetwork(String FilePath) throws IOException, SAXException, OpenXML4JException
 	{
-		setListOfProvider(new ArrayList<>());
+		ListOfProvider = new ArrayList<>();
 
 		{
 			File xlsxFile = new File(FilePath);
@@ -31,40 +31,41 @@ public class VaProviderNetwork
 		return ListOfProvider;
 	}
 
-	public void setListOfProvider(ArrayList<Provider> listOfProvider) {
-		ListOfProvider = listOfProvider;
-	}
-
 	public class Provider
 	{
-		String ZipCode;
-		boolean Audio;
-		boolean Dental;
-		boolean Eye;
-		boolean GYN;
-		boolean MentalHealth;
-		boolean Sleep;
-		boolean TBI;
-		boolean Other;
-
-		public Provider(){}
+		private int ID;
+		private String Specialty;
+		private String State;
+		private String ZipCode;
 		
-		public String toString()
-		{
-			return ZipCode + 
-					"\tAudio: " + Audio + 
-					"\tDental: " + Dental+ 
-					"\tEye: " + Eye + 
-					"\tGYN: " + GYN + 
-					"\tMentalHealth: " + MentalHealth + 
-					"\tSleep: " + Sleep + 
-					"\tTBI: " + TBI + 
-					"\tOther: " + Other;
+		public Provider(){}
+
+		public Provider(int id, String specialty, String state, String zipCode) {
+			super();
+			ID = id;
+			Specialty = specialty;
+			State = state;
+			ZipCode = zipCode;
 		}
 
+		public int getID() {
+			return ID;
+		}
+
+		public String getSpecialty() {
+			return Specialty;
+		}
+
+		public String getState() {
+			return State;
+		}
+
+		public String getZipCode() {
+			return ZipCode;
+		}
 	}
 
-	public class VaProviderNetworkHandler implements SheetContentsHandler
+	private class VaProviderNetworkHandler implements SheetContentsHandler
 	{
 		Provider TempProvider;
 
@@ -84,7 +85,7 @@ public class VaProviderNetwork
 		{
 			if(TempProvider != null)
 			{
-				getListOfProvider().add(TempProvider);
+				ListOfProvider.add(TempProvider);
 			}
 			if(isFirstRow)
 			{
@@ -107,71 +108,34 @@ public class VaProviderNetwork
 				{
 					case 0:
 					{
-						TempProvider.ZipCode = FormattedValue;
+						TempProvider.ID = Integer.parseInt(FormattedValue);
 					}
 					break;
 
 					case 1:
 					{
-						TempProvider.Audio = isServiceSupported(FormattedValue);
+						TempProvider.Specialty = FormattedValue;
 					}
 					break;
 					case 2:
 					{
-						TempProvider.Dental = isServiceSupported(FormattedValue);
+						TempProvider.State = FormattedValue;
 					}
 					break;
 					case 3:
 					{
-						TempProvider.Eye = isServiceSupported(FormattedValue);
+						TempProvider.ZipCode = FormattedValue;
 					}
 					break;
-
-					case 4:
-					{
-						TempProvider.GYN = isServiceSupported(FormattedValue);
-					}
-					break;
-					case 5:
-					{
-						TempProvider.MentalHealth = isServiceSupported(FormattedValue);
-					}
-					break;
-					case 6:
-					{
-						TempProvider.Sleep = isServiceSupported(FormattedValue);
-					}
-					break;
-					case 7:
-					{
-						TempProvider.TBI = isServiceSupported(FormattedValue);
-					}
-					break;
-					case 8:
-					{
-						TempProvider.Other = isServiceSupported(FormattedValue);
-					}
-					break;
-
 				}
 
 			}
-
 			// * [DEBUG] */System.out.print(FormattedValue + "\t");
 
 			CurrentColNum++;
 		}
 
 		@Override
-		public void headerFooter(String text, boolean isHeader, String tagName)
-		{
-		}
-
-		public boolean isServiceSupported(String value)
-		{
-			boolean result = (value.toUpperCase().contains("YES")) ? true : false;
-			return result;
-		}
-
+		public void headerFooter(String text, boolean isHeader, String tagName){}
 	}
 }
