@@ -15,11 +15,11 @@ import org.xml.sax.SAXException;
 
 public class Referral
 {
-	private ArrayList<Claimant> ListOfClaimant;
+	private ArrayList<Claimant> ListOfClaimants;
 	
 	public Referral(String FilePath) throws IOException, SAXException, OpenXML4JException
 	{
-		setListOfClaimant(new ArrayList<>());
+		ListOfClaimants = new ArrayList<>();
 		
 		{
 			File xlsxFile = new File(FilePath);
@@ -30,40 +30,61 @@ public class Referral
 		}
 	}
 	
-	public ArrayList<Claimant> getListOfClaimant() {
-		return ListOfClaimant;
+	public ArrayList<Claimant> getListOfClaimants() {
+		return ListOfClaimants;
 	}
 
 	public void setListOfClaimant(ArrayList<Claimant> listOfClaimant) {
-		ListOfClaimant = listOfClaimant;
+		ListOfClaimants = listOfClaimant;
 	}
 
 	public class Claimant
 	{
-		String State;
-		String ZipCode;
-		String Date;
-		String SpecialtyGroup;
-		int NumOfReferral;
+		private String State;
+		private String ZipCode;
+		private String Date;
+		private String SpecialtyGroup;
+		private int NumOfAppointment;
 		
 		public Claimant(){}
 		
-		public Claimant(String State, String ZipCode, String Date, String SpecialtyGroup, int NumOfReferral)
-		{
-			this.State = State;
-			this.ZipCode = ZipCode;
-			this.Date = Date;
-			this.SpecialtyGroup = SpecialtyGroup;
-			this.NumOfReferral = NumOfReferral;
+		public Claimant(String state, String zipCode, String date, String specialtyGroup, int numOfAppointment) {
+			State = state;
+			ZipCode = zipCode;
+			Date = date;
+			SpecialtyGroup = specialtyGroup;
+			NumOfAppointment = numOfAppointment;
 		}
-		
+
 		public String toString()
 		{
-			return State + "\t" + ZipCode + "\t" + Date + "\t" + SpecialtyGroup + "\t" + NumOfReferral;
+			return State + "\t" + ZipCode + "\t" + Date + "\t" + SpecialtyGroup + "\t" + NumOfAppointment;
 		}
+
+		public String getState() {
+			return State;
+		}
+
+		public String getZipCode() {
+			return ZipCode;
+		}
+
+		public String getDate() {
+			return Date;
+		}
+
+		public String getSpecialtyGroup() {
+			return SpecialtyGroup;
+		}
+
+		public int getNumOfAppointment() {
+			return NumOfAppointment;
+		}
+		
+		
 	}
 	
-	public class ReferralHandler implements SheetContentsHandler
+	private class ReferralHandler implements SheetContentsHandler
 	{
 		SimpleDateFormat ExcelFormat = new SimpleDateFormat("dd-MMM-yyyy");
 		SimpleDateFormat CurrentFormat = new SimpleDateFormat("MM/dd/20yy");
@@ -86,7 +107,7 @@ public class Referral
 		{
 			if(TempClaimant != null)
 			{
-				getListOfClaimant().add(TempClaimant);
+				ListOfClaimants.add(TempClaimant);
 			}
 			if(isFirstRow)
 			{
@@ -142,7 +163,7 @@ public class Referral
 					
 					case 4:
 					{
-						TempClaimant.NumOfReferral = Integer.parseInt(value);
+						TempClaimant.NumOfAppointment = Integer.parseInt(value);
 					}
 					break;
 				}
