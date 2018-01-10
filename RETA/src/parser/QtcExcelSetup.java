@@ -10,6 +10,7 @@ public class QtcExcelSetup
 	private ERRA erra = null;
 	private Referral referral = null;
 	private VaProviderNetwork vpNetwork = null;
+	private ZipcodeDB ListOfZipcode = null;
 	
 	/*
 	 * IMPORTANT NOTE: 
@@ -28,6 +29,7 @@ public class QtcExcelSetup
 			 *	Using System.out.println(System.getProperty("user.dir")),
 			 *	it shows that the working directory starts at QTC//.
 			 * */
+			ListOfZipcode = new ZipcodeDB("RETA\\QTC files\\zipcode.csv");
 			
 			vpNetwork = new VaProviderNetwork("RETA\\QTC files\\VA Provider Network List.xlsx");
 			
