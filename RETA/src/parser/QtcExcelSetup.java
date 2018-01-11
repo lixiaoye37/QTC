@@ -1,6 +1,9 @@
 package parser;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
 import org.xml.sax.SAXException;
@@ -29,6 +32,8 @@ public class QtcExcelSetup
 			 *	Using System.out.println(System.getProperty("user.dir")),
 			 *	it shows that the working directory starts at QTC//.
 			 * */
+			
+			System.out.println(System.getProperty("user.dir"));
 			ListOfZipcode = new ZipcodeDB("RETA\\QTC files\\zipcode.csv");
 			
 			vpNetwork = new VaProviderNetwork("RETA\\QTC files\\VA Provider Network List.xlsx");

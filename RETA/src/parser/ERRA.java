@@ -13,6 +13,8 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import model.CityInfo;
+
 public class ERRA {
 	private HashMap<String, ArrayList<CityInfo>> TimeSchedule;
 
@@ -145,7 +147,7 @@ public class ERRA {
 					boolean isQtcAssigned = location.QtcAssignedSlot.get(i);
 
 					if (isQtcAssigned == true) {
-						City.IsQtcAssignedSlot = isQtcAssigned;
+						City.setIsQtcAssignedSlot(isQtcAssigned);
 					}
 				}
 			} else {
@@ -166,29 +168,8 @@ public class ERRA {
 		myWorkBook.close();
 	}
 
-	public class CityInfo {
-		private String VARO;
-		private String State;
-		private boolean IsQtcAssignedSlot;
-
-		public CityInfo(String varo, String state, boolean isQtcAssignedSlot) {
-			super();
-			VARO = varo;
-			State = state;
-			IsQtcAssignedSlot = isQtcAssignedSlot;
-		}
-
-		public String getVARO() {
-			return VARO;
-		}
-
-		public String getState() {
-			return State;
-		}
-
-		public boolean isIsQtcAssignedSlot() {
-			return IsQtcAssignedSlot;
-		}
+	public HashMap<String, ArrayList<CityInfo>> getTimeSchedule() {
+		return TimeSchedule;
 	}
 
 	private class LocationHistory {
@@ -204,10 +185,6 @@ public class ERRA {
 		}
 	}
 	
-	public HashMap<String, ArrayList<CityInfo>> getTimeSchedule() {
-		return TimeSchedule;
-	}
-
 	private class Date_Time {
 		private String Date;
 		private String TimeOfDay;
