@@ -13,6 +13,8 @@ import org.apache.poi.xssf.eventusermodel.XSSFSheetXMLHandler.SheetContentsHandl
 import org.apache.poi.xssf.usermodel.XSSFComment;
 import org.xml.sax.SAXException;
 
+import model.Claimant;
+
 public class Referral
 {
 	private ArrayList<Claimant> ListOfClaimants;
@@ -38,51 +40,7 @@ public class Referral
 		ListOfClaimants = listOfClaimant;
 	}
 
-	public class Claimant
-	{
-		private String State;
-		private String ZipCode;
-		private String Date;
-		private String SpecialtyGroup;
-		private int NumOfAppointment;
-		
-		public Claimant(){}
-		
-		public Claimant(String state, String zipCode, String date, String specialtyGroup, int numOfAppointment) {
-			State = state;
-			ZipCode = zipCode;
-			Date = date;
-			SpecialtyGroup = specialtyGroup;
-			NumOfAppointment = numOfAppointment;
-		}
-
-		public String toString()
-		{
-			return State + "\t" + ZipCode + "\t" + Date + "\t" + SpecialtyGroup + "\t" + NumOfAppointment;
-		}
-
-		public String getState() {
-			return State;
-		}
-
-		public String getZipCode() {
-			return ZipCode;
-		}
-
-		public String getDate() {
-			return Date;
-		}
-
-		public String getSpecialtyGroup() {
-			return SpecialtyGroup;
-		}
-
-		public int getNumOfAppointment() {
-			return NumOfAppointment;
-		}
-		
-		
-	}
+	
 	
 	private class ReferralHandler implements SheetContentsHandler
 	{
@@ -132,13 +90,13 @@ public class Referral
 				{
 					case 0:
 					{
-						TempClaimant.State = value;
+						TempClaimant.setState(value);
 					}
 					break;
 
 					case 1:
 					{
-						TempClaimant.ZipCode = value;
+						TempClaimant.setZipCode(value);
 					}
 					break;
 					case 2:
@@ -147,7 +105,7 @@ public class Referral
 						{
 							Date ExcelDate = ExcelFormat.parse(value);
 							value = CurrentFormat.format(ExcelDate);
-							TempClaimant.Date = value;
+							TempClaimant.setDate(value);
 						}
 						catch (ParseException e)
 						{
@@ -157,13 +115,13 @@ public class Referral
 					break;
 					case 3:
 					{
-						TempClaimant.SpecialtyGroup = value;
+						TempClaimant.setSpecialtyGroup(value);
 					}
 					break;
 					
 					case 4:
 					{
-						TempClaimant.NumOfAppointment = Integer.parseInt(value);
+						TempClaimant.setNumOfAppointment(Integer.parseInt(value));
 					}
 					break;
 				}

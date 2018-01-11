@@ -10,6 +10,8 @@ import org.apache.poi.xssf.eventusermodel.XSSFSheetXMLHandler.SheetContentsHandl
 import org.apache.poi.xssf.usermodel.XSSFComment;
 import org.xml.sax.SAXException;
 
+import model.Provider;
+
 public class VaProviderNetwork
 {
 	private ArrayList<Provider> ListOfProvider;
@@ -29,40 +31,6 @@ public class VaProviderNetwork
 
 	public ArrayList<Provider> getListOfProvider() {
 		return ListOfProvider;
-	}
-
-	public class Provider
-	{
-		private int ID;
-		private String Specialty;
-		private String State;
-		private String ZipCode;
-		
-		public Provider(){}
-
-		public Provider(int id, String specialty, String state, String zipCode) {
-			super();
-			ID = id;
-			Specialty = specialty;
-			State = state;
-			ZipCode = zipCode;
-		}
-
-		public int getID() {
-			return ID;
-		}
-
-		public String getSpecialty() {
-			return Specialty;
-		}
-
-		public String getState() {
-			return State;
-		}
-
-		public String getZipCode() {
-			return ZipCode;
-		}
 	}
 
 	private class VaProviderNetworkHandler implements SheetContentsHandler
@@ -108,23 +76,23 @@ public class VaProviderNetwork
 				{
 					case 0:
 					{
-						TempProvider.ID = Integer.parseInt(FormattedValue);
+						TempProvider.setID(Integer.parseInt(FormattedValue));
 					}
 					break;
 
 					case 1:
 					{
-						TempProvider.Specialty = FormattedValue;
+						TempProvider.setSpecialty(FormattedValue);
 					}
 					break;
 					case 2:
 					{
-						TempProvider.State = FormattedValue;
+						TempProvider.setState(FormattedValue);
 					}
 					break;
 					case 3:
 					{
-						TempProvider.ZipCode = FormattedValue;
+						TempProvider.setZipCode(FormattedValue);
 					}
 					break;
 				}
