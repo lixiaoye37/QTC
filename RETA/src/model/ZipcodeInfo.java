@@ -49,5 +49,10 @@ public class ZipcodeInfo
 	public String getDst() {
 		return dst;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "ZipcodeInfo [zipcode=" + zipcode + ", city=" + city + ", state=" + state + ", latitude=" + latitude
+				+ ", longitude=" + longitude + ", timezone=" + timezone + ", dst=" + dst + "]";
+	}
 }

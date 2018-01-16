@@ -18,11 +18,6 @@ public class Claimant
 		NumOfAppointment = numOfAppointment;
 	}
 
-	public String toString()
-	{
-		return State + "\t" + ZipCode + "\t" + Date + "\t" + SpecialtyGroup + "\t" + NumOfAppointment;
-	}
-
 	public void setState(String state) {
 		State = state;
 	}
@@ -61,6 +56,12 @@ public class Claimant
 
 	public int getNumOfAppointment() {
 		return NumOfAppointment;
+	}
+
+	@Override
+	public String toString() {
+		return "Claimant [State=" + State + ", ZipCode=" + ZipCode + ", Date=" + Date + ", SpecialtyGroup="
+				+ SpecialtyGroup + ", NumOfAppointment=" + NumOfAppointment + "]";
 	}
 	
 	

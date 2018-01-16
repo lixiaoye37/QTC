@@ -27,4 +27,11 @@ public class CityInfo {
 	public boolean isIsQtcAssignedSlot() {
 		return IsQtcAssignedSlot;
 	}
+
+	@Override
+	public String toString() {
+		return "CityInfo [VARO=" + VARO + ", State=" + State + ", IsQtcAssignedSlot=" + IsQtcAssignedSlot + "]";
+	}
+	
+	
 }
