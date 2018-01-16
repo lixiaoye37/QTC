@@ -1,4 +1,4 @@
-package parser;
+package example;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,6 +7,11 @@ import java.nio.file.Paths;
 
 import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
 import org.xml.sax.SAXException;
+
+import parser.ERRA;
+import parser.Referral;
+import parser.VaProviderNetwork;
+import parser.ZipcodeDB;
 
 public class QtcExcelSetup 
 {
@@ -22,6 +27,13 @@ public class QtcExcelSetup
 	 * 		However, feel free to make this file a part of the RETA system.
 	 * */
 	
+	public static void main(String[] args) 
+	{
+		System.out.println("Start");
+		QtcExcelSetup setup = new QtcExcelSetup();
+		System.out.println("End");
+	}
+	
 	public QtcExcelSetup() 
 	{
 		try
@@ -34,13 +46,13 @@ public class QtcExcelSetup
 			 * */
 			
 			System.out.println(System.getProperty("user.dir"));
-			ListOfZipcode = new ZipcodeDB("RETA\\QTC files\\zipcode.csv");
+			ListOfZipcode = new ZipcodeDB("QTC files\\zipcode.csv");
 			
-			vpNetwork = new VaProviderNetwork("RETA\\QTC files\\VA Provider Network List.xlsx");
+			vpNetwork = new VaProviderNetwork("QTC files\\VA Provider Network List.xlsx");
 			
-			referral = new Referral("RETA\\QTC files\\Sample referral data v2.xlsx");
+			referral = new Referral("QTC files\\Sample referral data v2.xlsx");
 			
-			erra = new ERRA("RETA\\QTC files\\Sample ERRA Data.xlsx");
+			erra = new ERRA("QTC files\\Sample ERRA Data.xlsx");
 			
 			System.out.println();
 		}
