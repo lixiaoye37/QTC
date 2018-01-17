@@ -90,12 +90,14 @@ public class Referral
 				{
 					case 0:
 					{
-						TempClaimant.setState(value);
+						String state = value.trim();
+						TempClaimant.setState(state);
 					}
 					break;
 
 					case 1:
 					{
+						String zipcode = value.trim();
 						TempClaimant.setZipCode(value);
 					}
 					break;
@@ -115,7 +117,8 @@ public class Referral
 					break;
 					case 3:
 					{
-						TempClaimant.setSpecialtyGroup(value);
+						String SpecialtyGroup = value.trim();
+						TempClaimant.setSpecialtyGroup(SpecialtyGroup);
 					}
 					break;
 					

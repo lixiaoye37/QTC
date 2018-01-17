@@ -25,6 +25,8 @@ public class ZipcodeDB
 				line = input.nextLine();
 				if(!line.isEmpty()) 
 				{
+					line = line.replace("\"", "");
+					
 					String[] fields = line.split(",");
 					String zipcode = fields[0];
 					String city = fields[1];

@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import example.QtcExcelSetup;
 import model.Specialty;
-import parser.QtcExcelSetup;
 
 @WebServlet("/Page/CheckoutSpecialtyList")
 public class CheckoutSpecialtyList extends HttpServlet {
@@ -52,7 +52,7 @@ public class CheckoutSpecialtyList extends HttpServlet {
 		ArrayList<Specialty> specialties = (ArrayList<Specialty>) getServletContext().getAttribute("specialties");
 		String[] CheckedSpecialties = request.getParameterValues("specialty");
 		
-		QtcExcelSetup setup = new QtcExcelSetup();
+		//QtcExcelSetup setup = new QtcExcelSetup();
 	}
 
 }

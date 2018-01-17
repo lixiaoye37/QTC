@@ -82,17 +82,20 @@ public class VaProviderNetwork
 
 					case 1:
 					{
-						TempProvider.setSpecialty(FormattedValue);
+						String specialty = FormattedValue.trim();
+						TempProvider.setSpecialty(specialty);
 					}
 					break;
 					case 2:
 					{
-						TempProvider.setState(FormattedValue);
+						String state = FormattedValue.trim();
+						TempProvider.setState(state);
 					}
 					break;
 					case 3:
 					{
-						TempProvider.setZipCode(FormattedValue);
+						String zipcode = FormattedValue.trim();
+						TempProvider.setZipCode(zipcode);
 					}
 					break;
 				}

@@ -22,7 +22,7 @@ public class QtcExcelSetup
 	 * 		However, feel free to make this file a part of the RETA system.
 	 * */
 	
-	public QtcExcelSetup() 
+	public QtcExcelSetup(String ref) 
 	{
 		try
 		{
@@ -33,14 +33,15 @@ public class QtcExcelSetup
 			 *	it shows that the working directory starts at QTC//.
 			 * */
 			
-			System.out.println(System.getProperty("user.dir"));
-			ListOfZipcode = new ZipcodeDB("RETA\\QTC files\\zipcode.csv");
+			//System.out.println(System.getProperty("user.dir"));
 			
-			vpNetwork = new VaProviderNetwork("RETA\\QTC files\\VA Provider Network List.xlsx");
+			//ListOfZipcode = new ZipcodeDB("RETA\\QTC files\\zipcode.csv");
 			
-			referral = new Referral("RETA\\QTC files\\Sample referral data v2.xlsx");
+			//vpNetwork = new VaProviderNetwork("RETA\\QTC files\\VA Provider Network List.xlsx");
 			
-			erra = new ERRA("RETA\\QTC files\\Sample ERRA Data.xlsx");
+			referral = new Referral(ref);
+			
+			//erra = new ERRA("RETA\\QTC files\\Sample ERRA Data.xlsx");
 			
 			System.out.println();
 		}

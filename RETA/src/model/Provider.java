@@ -48,4 +48,10 @@ public class Provider
 	public String getZipCode() {
 		return ZipCode;
 	}
+
+	@Override
+	public String toString() {
+		return "Provider [ID=" + ID + ", Specialty=" + Specialty + ", State=" + State + ", ZipCode=" + ZipCode + "]";
+	}
+	
 }

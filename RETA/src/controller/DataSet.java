@@ -68,7 +68,7 @@ public class DataSet extends HttpServlet {
 //				out.println("<h1>"+vpNetwork.getListOfProvider()+"</h1>"); //displays the list of Providers
 //				session.setAttribute("erra", erra.toString());
 //				session.setAttribute("", referral);
-//				session.setAttribute("", vpNetwork);
+//			session.setAttribute("", vpNetwork);
 //				request.getRequestDispatcher("/Page/crossCheck.jsp").forward(request, response);
 	}
 
