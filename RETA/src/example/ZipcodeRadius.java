@@ -14,11 +14,12 @@ import utils.Geolocation;
 import utils.RadiusBox;
 
 public class ZipcodeRadius {
+	
 	static final Double EarthRadiusInMiles = 3956.0;
 	
 	public static void main(String[] args) {
 		System.out.println(System.getProperty("user.dir"));
-		
+
 		ZipcodeDB ListOfZipcode = new ZipcodeDB("QTC files\\zipcode.csv");
 		VaProviderNetwork vpNetwork = null;
 		try 
