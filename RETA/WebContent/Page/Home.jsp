@@ -22,26 +22,38 @@
 
 		<div id="list">
 			<ul class="nav nav-pills nav-fill">
-				<li class="nav-item"><a class="nav-link active" href="#">Cross Check</a></li>
+			
+				<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="CrossCheck.jsp">Cross Check</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Requirement Check</a></li>
-				<li class="nav-item"><a class="nav-link" href="#"></a></li>
+				
 			</ul>
-
 		</div>
-
 	</div>
+	
 	<br/>
 	<br/>
 	<br/>
 	<br/>
-	<c:if test="${ref} != null ">
-		<div align="center" class="container" id="filePath">
-			<form class="form-group" action="DataSet" method="POST" >
-				<input class="form-control-file" type="file" name="ref_file" accept=".xlsx"/>
-				<button>submit</button>
-			</form>
-		</div>
-	</c:if> 
+	
+	<div align="center" class="form-group" id="filePath">
+		<form action="DataSet" method="POST" >
+		
+			<label>Enter a Referral File</label>
+			<input class="form-control-file" type="file" name="ref_file" accept=".xlsx"/>
+			<br/>
+			
+			<label>Enter an ERRA File</label>
+			<input class="form-control-file" type="file" name="erra_file" accept=".xlsx"/>
+			<br/>
+			
+			<label>Enter a Provider File </label>
+			<input class="form-control-file" type="file" name="prov_file" accept=".xlsx"/>
+			
+			<button>submit</button>
+		</form>
+	</div>
+	
 
 	
 	
