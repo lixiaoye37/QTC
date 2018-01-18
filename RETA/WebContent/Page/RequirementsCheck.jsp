@@ -1,22 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Requirement Check</title>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		crossorigin="anonymous">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Requirement Check</title>
 </head>
 <body>
 
-<b> Requirement Check </b>
+	<div class="container" id="heading">
+		<h1>QTC</h1>
 
-<br>
-<br></br>
-<tr> Filter </tr>
-<br></br>
+		<div id="list">
+			<ul class="nav nav-pills nav-fill">
 
+				<li class="nav-item"><a class="nav-link" href="Home.jsp">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="CrossCheck.jsp">Cross
+						Check</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Requirement
+						Check</a></li>
 
-<%--ZIZipcode validation 
+			</ul>
+		</div>
+	</div>
+
+	<%--ZIZipcode validation 
 function is_int(value){ 
   if ((parseFloat(value) == parseInt(value)) && !isNaN(value)) {
     return true;
@@ -24,17 +36,39 @@ function is_int(value){
     return false;
   } --%>
 
-<form action="main" method="get">
-	<th>State</th><br></br>
-	<input type="text" name="searchQuery" placeholder="Type here" value="${param.searchQuery}">
-	<br></br>
-	<th>ZipCode</th><br></br>
-	<input type="text" name="searchQuery" placeholder="Type here" value="${param.searchQuery}">
-</form>
+<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<h5><a href="CheckoutSpecialtyList">Specialty List</a></h5>
+				<h3>Filters</h3>
+				<hr>
+				<form action="#" method="get">
+					<h4>Zip-Code:</h4>
+					<input type="text" name="searchQuery" placeholder="Enter a search query" value="${param.searchQuery}">
+					
+					<br/>
+					<br/>
+					 
+					<label for="inputState">State:</label> 
+					<select id="inputState">
+						<option selected>Choose...</option>
+						<option>...</option>
+					</select> <br /> <br />
+		
+					<h4>Requirement Check:</h4>
+					<input type="checkbox" name="data" value="met"> Meets Requirement <br /> 
+					<input type="checkbox" name="data" value="met">Doesn't meet Requirement <br /> <br />
+					<input class="btn btn-primary" type="submit" name="newTodo" value="Submit">
+		
+				</form>
+			</div>
+		</div>
+
+	</div>
 
 
 
-<%--
+	<%--
 <form action="action.jsp">
   <select name="productId">
     <option value="1">Alabama</option> <option value="2">Alaska</option> <option value="3">Arizona</option>
@@ -58,30 +92,20 @@ function is_int(value){
   </select>
 
 </form> --%>
- 
-<%--
+
+	<%--
 String productSelected = request.getParameter("productId");
 --%>
 
-<br> Requirement checks:
-<form ACTION="jspCheckBox.jsp">
-<input type="checkbox" name="id" value="Meets Requirement"> Java<BR>
-<input type="checkbox" name="id" value="Doesn't meet Requirement"> .NET<BR>
-<input type="submit" value="Submit">
-</form>
 
+	<ul>
+		<c:forEach items="${zipCodes}" var="all">
 
-
-<ul>
-	<c:forEach items="${zipCodes}" var="all">
-	
-		<tr>
-		<a href="zip?id=${todo.id}"/a>
-							<td>${item.number}</td>
-							
-		
-	</c:forEach>
-</ul>
+			<tr>
+				<a href="zip?id=${todo.id}" /a>
+					<td>${item.number}</td>
+		</c:forEach>
+	</ul>
 
 
 
