@@ -24,7 +24,7 @@
 			
 				<li class="nav-item"><a class="nav-link" href="Home.jsp">Home</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Cross Check</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Requirement Check</a></li>
+				<li class="nav-item"><a class="nav-link" href="Requirecheck2.jsp">Requirement Check</a></li>
 				
 			</ul>
 		</div>
@@ -34,42 +34,55 @@
 	
 
 	<div class="container">	
-		<h3>Filters</h3>
 	
-		<form action="#" method="get">
-			<h4>State</h4>
-			<input type="text" name="searchQuery" placeholder="Enter a search query" value="${param.searchQuery}">
-			
-			<br></br>
-			
-			<h4>ZipCode</h4>
-			<input type="text" placeholder="Enter a search query" name="searchQuery"/>
-		</form>
-		
-		<form action="#" method="get">
-			<h4>Start Date</h4>
-			<input type="text" name="searchQuery"
-				placeholder="Enter a search query" value="${param.searchQuery}">
+		<div class="row">
+			<div class="col-sm-4">
+				<h3>Filters</h3>
+				<hr>
+				<form action="#" method="get">
+					<label>State:</label>
+					<input type="text" name="searchQuery" placeholder="Enter a search query" value="${param.searchQuery}">
+						
+					<br/><br/>
+						
+					<label>ZipCode:</label>
+					<input type="text" placeholder="Enter a search query" name="searchQuery"/>
 				
-			<br></br>
-			
-			<h4>End Date</h4>
-			<input type="text" name="searchQuery"
-				placeholder="Enter a search query" value="${param.searchQuery}">
-		</form>
-		<br/>
-		<form action="#">
-			<h4>List to check:</h4>
-			<input type="radio" name="gender" value="male"> ERRA
-			not in Referral<br> <input type="radio" name="gender"
-				value="female"> Referral not in ERRA<br> <input
-				type="radio" name="gender" value="other"> Both Matching
-		</form>
-		
-		<form action="#" method="get">
-			<input type="submit" name="newTodo" value="Submit">
-		</form>
-	
+					<br/><br/>
+					
+					<span class="form-inline">
+					
+					<label>Start Date:</label>
+					<input type="text" name="searchQuery" placeholder="Enter a search query" value="${param.searchQuery}">
+							
+					<br/><br/>
+						
+					<label>End Date:</label>
+					<input type="text" name="searchQuery" placeholder="Enter a search query" value="${param.searchQuery}">
+					
+					<br/><br/>
+					</span>
+					<h4>List to check:</h4>
+					<input type="radio" name="data" value="Erra_Ref"> ERRA not in Referral
+					<br/>
+					<input type="radio" name="data" value="Ref_ERRA"> Referral not in ERRA 
+					<br/>			
+					<input type="radio" name="data" value="Both"> Both Matching
+					
+					
+					
+					<br/>
+					<input class="btn btn-primary" type="submit" name="newTodo" value="Submit">
+					
+				</form>
+			</div>
+			<!--Note 2: This is where we should display area -->
+			<div class="col-sm-4">
+				
+				
+			</div>
+			<!--End of Note 2  -->
+		</div>
 	</div>
 
 
