@@ -28,7 +28,52 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
-	
+
+	<div class="container" id="heading">
+		<h1>QTC</h1>
+
+		<div id="list">
+			<ul class="nav nav-pills nav-fill">
+
+				<li class="nav-item"><a class="nav-link" href="Home.jsp">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="CrossCheck.jsp">Cross
+						Check</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Requirement
+						Check</a></li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<h5><a href="CheckoutSpecialtyList">Specialty List</a></h5>
+				<h3>Filters</h3>
+				<hr>
+				<form action="#" method="get">
+					<h4>Zip-Code:</h4>
+					<input type="text" name="searchQuery" placeholder="Enter a search query" value="${param.searchQuery}">
+					
+					<br/>
+					<br/>
+					 
+					<label for="inputState">State:</label> 
+					<select id="inputState">
+						<option selected>Choose...</option>
+						<option>...</option>
+					</select> <br /> <br />
+		
+					<h4>Requirement Check:</h4>
+					<input type="checkbox" name="data" value="met"> Meets Requirement <br /> 
+					<input type="checkbox" name="data" value="met">Doesn't meet Requirement <br /> <br />
+					<input class="btn btn-primary" type="submit" name="newTodo" value="Submit">
+		
+				</form>
+			</div>
+		</div>
+
+	</div>
 
 	<!--  x = table for not avail *********************** -->
 	<c:if test="${not empty x}">
@@ -39,7 +84,6 @@ tr:nth-child(even) {
 					<th>Specialty</th>
 					<th>No. of Referrals</th>
 					<th>Nearest Provider(s) ID</th>
-
 				</tr>
 			</thead>
 			<tbody>
@@ -48,8 +92,8 @@ tr:nth-child(even) {
 						<td>${item.spec}</td>
 						<td>${item.Ref}</td>
 						<td><c:forEach items="${items.providers}" var="prov">
-								<br> ${prov} (${prov.distance})
-							</c:forEach> <br></td>
+								<br /> ${prov} (${prov.distance})
+				</c:forEach></td>
 
 					</tr>
 				</c:forEach>
@@ -77,7 +121,7 @@ tr:nth-child(even) {
 						<td>${item.spec}</td>
 						<td><c:forEach items="${items.providers}" var="prov">
 								<br> ${prov} (${prov.distance})
-						</c:forEach> <br></td>
+							</c:forEach> <br></td>
 
 					</tr>
 				</c:forEach>
