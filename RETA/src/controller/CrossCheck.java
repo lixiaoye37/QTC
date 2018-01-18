@@ -26,12 +26,7 @@ public class CrossCheck extends HttpServlet {
     {
     	super.init(config);
     	
-    	
-    }
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
-		String[] StateList = new String[] {
+    	String[] StateList = new String[] {
 				"AK","AL","AR","AZ","CA","CO","CT","DC","DE","FL",
 				"GA","GU","HI","IA","ID", "IL","IN","KS","KY","LA",
 				"MA","MD","ME","MH","MI","MN","MO","MS","MT","NC",
@@ -39,9 +34,11 @@ public class CrossCheck extends HttpServlet {
 				"PA","PR","PW","RI","SC","SD","TN","TX","UT","VA",
 				"VI","VT","WA","WI","WV","WY"};
 		getServletContext().setAttribute("StateList", StateList);
-		System.out.println(StateList);
-    	
-		request.getRequestDispatcher("/Page/crossCheck.jsp").forward(request, response);
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+		request.getRequestDispatcher("/Page/CrossCheck.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
@@ -50,6 +47,6 @@ public class CrossCheck extends HttpServlet {
 		System.out.println(zipcode);
 		String state = request.getParameter("StateList");
 		System.out.println(state);
-		request.getRequestDispatcher("/Page/crossCheck.jsp").forward(request, response);
+		request.getRequestDispatcher("/Page/CrossCheck.jsp").forward(request, response);
 	}
 }
