@@ -21,7 +21,7 @@ function validation()
 	var zipcodeView = document.getElementById("zipcodeView");
 	var zipcode = document.getElementById("zipcodeQuery").value;
 	
-	var isZipcodeValid = true;
+	var isZipcodeValid = false;
 	if (zipcode.length != 5)
 		isZipcodeValid = false;
 	else
@@ -144,9 +144,23 @@ function validation()
 	else
 		EndDateView.style.color = "red";
 	
-	console.log(isStartDateValid)
-	console.log(isEndDateValid)
+	var CrossCheckOptionView = document.getElementById("CrossCheckOptionView");
+	var CrossCheckOption_0 = document.getElementById("Option_0").checked;
+	var CrossCheckOption_1 = document.getElementById("Option_1").checked;
+	var CrossCheckOption_2 = document.getElementById("Option_2").checked;
+	
+	var isOptionSelected = false;
+	if(CrossCheckOption_0 || CrossCheckOption_1 || CrossCheckOption_2)
+		isOptionSelected = true;
+	else
+		isOptionSelected = false;
 
-	return false;
+	if(isOptionSelected)
+		CrossCheckOptionView.style.color = "black";
+	else
+		CrossCheckOptionView.style.color = "red";
+	
+	var isCrossCheckValid = isZipcodeValid && isStateValid && isStartDateValid && isEndDateValid && isDateRangeForeward && isOptionSelected;
+	return isCrossCheckValid;
 	
 }

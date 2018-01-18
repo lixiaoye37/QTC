@@ -44,10 +44,11 @@
 					<b id="stateView">State:</b> 
 					<select id="StateList">
 						<option value="Select">Select</option>
-						<option value="CA">CA</option>
-						<option value="VA">VA</option>
-						<option value="QA">QA</option>
-						<option value="RE">RE</option>
+						<c:forEach items="${StateList}" var="State" varStatus="i">
+							<option value="${State}">${State}</option>	
+						</c:forEach>
+						
+						
 					</select>
 				</div>
 				
@@ -71,11 +72,13 @@
 					</tr>
 				</table>
 
-				<br /> List to check <br />
+				<br /> 
+				<b id="CrossCheckOptionView">List to check </b>
+				<br />
 				 
-				<input type="radio" name="option" value="0"> ERRA not in Referral<br /> 
-				<input type="radio" name="option" value="1"> Referral not in ERRA<br /> 
-				<input type="radio" name="option" value="2"> Both Matching<br /> <br />
+				<input type="radio" name="CrossCheck" id="Option_0" value=0> ERRA not in Referral<br /> 
+				<input type="radio" name="CrossCheck" id="Option_1" value=1> Referral not in ERRA<br /> 
+				<input type="radio" name="CrossCheck" id="Option_2" value=2> Both Matching<br /> <br />
 				<input type="submit" value="Search">
 			
 			</div>
