@@ -160,7 +160,7 @@ function validation()
 	else
 		CrossCheckOptionView.style.color = "red";
 	
-	var isCrossCheckValid = isZipcodeValid && isStateValid && isStartDateValid && isEndDateValid && isDateRangeForeward && isOptionSelected;
-	return isCrossCheckValid;
-	
+	//var isCrossCheckValid = isZipcodeValid && isStateValid && isStartDateValid && isEndDateValid && isDateRangeForeward && isOptionSelected;
+	//return isCrossCheckValid;
+	return true;
 }
