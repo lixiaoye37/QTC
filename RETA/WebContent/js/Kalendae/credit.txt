@@ -1,0 +1,2 @@
+example page: http://anasnakawa.github.io/kalendae-skins/
+Github page: https://github.com/Twipped/Kalendae
